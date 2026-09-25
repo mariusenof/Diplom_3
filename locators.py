@@ -38,26 +38,6 @@ class MainPageLocators:
         ".//span[text()='Начинки']"
     )
 
-    FIRST_ORDER_CARD = (
-        By.XPATH,
-        "(//li[contains(@class, 'OrderHistory_listItem')]//a)[1]"
-    )
-
-    ORDER_MODAL = (
-        By.XPATH,
-        "//*[contains(text(), 'Cостав') or contains(text(), 'Состав')]"
-    )
-
-    TOTAL_COUNTER = (
-        By.XPATH,
-        "//p[text()='Выполнено за все время:']/following-sibling::p"
-    )
-
-    TODAY_COUNTER = (
-        By.XPATH,
-        "//p[text()='Выполнено за сегодня:']/following-sibling::p"
-    )
-
     FIRST_INGREDIENT = (
         By.XPATH,
         "(//a[contains(@class, 'BurgerIngredient_ingredient')])[1]"
@@ -92,6 +72,34 @@ class MainPageLocators:
     CREATED_ORDER_NUMBER = (
         By.XPATH,
         "//h2[contains(@class, 'Modal_modal__title')]"
+    )
+
+
+class OrderFeedPageLocators:
+
+    CONSTRUCTOR_BUTTON = (
+        By.XPATH,
+        ".//p[text()='Конструктор']"
+    )
+
+    FIRST_ORDER_CARD = (
+        By.XPATH,
+        "(//li[contains(@class, 'OrderHistory_listItem')]//a)[1]"
+    )
+
+    ORDER_MODAL = (
+        By.XPATH,
+        "//*[contains(text(), 'Cостав') or contains(text(), 'Состав')]"
+    )
+
+    TOTAL_COUNTER = (
+        By.XPATH,
+        "//p[text()='Выполнено за все время:']/following-sibling::p"
+    )
+
+    TODAY_COUNTER = (
+        By.XPATH,
+        "//p[text()='Выполнено за сегодня:']/following-sibling::p"
     )
 
     ORDERS_IN_PROGRESS_TITLE = (
