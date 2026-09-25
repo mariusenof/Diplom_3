@@ -57,11 +57,13 @@ class MainPage(BasePage):
         )
 
         parent = element.find_element(
-            'xpath',
-            '..'
+            *MainPageLocators.PARENT_ELEMENT
         )
 
-        return 'tab_tab_type_current' in parent.get_attribute('class')
+        return (
+            'tab_tab_type_current'
+            in parent.get_attribute('class')
+        )
 
     def is_sauces_section_active(self):
         element = self.find_element(
@@ -69,11 +71,13 @@ class MainPage(BasePage):
         )
 
         parent = element.find_element(
-            'xpath',
-            '..'
+            *MainPageLocators.PARENT_ELEMENT
         )
 
-        return 'tab_tab_type_current' in parent.get_attribute('class')
+        return (
+            'tab_tab_type_current'
+            in parent.get_attribute('class')
+        )
 
     def is_fillings_section_active(self):
         element = self.find_element(
@@ -81,11 +85,13 @@ class MainPage(BasePage):
         )
 
         parent = element.find_element(
-            'xpath',
-            '..'
+            *MainPageLocators.PARENT_ELEMENT
         )
 
-        return 'tab_tab_type_current' in parent.get_attribute('class')
+        return (
+            'tab_tab_type_current'
+            in parent.get_attribute('class')
+        )
 
     def click_first_ingredient(self):
         self.click_element_js(
@@ -192,7 +198,10 @@ class MainPage(BasePage):
 
             clean_number = text.replace('#', '').strip()
 
-            if clean_number.isdigit() and clean_number != '9999':
+            if (
+                clean_number.isdigit()
+                and clean_number != '9999'
+            ):
                 return clean_number
 
             return False

@@ -14,7 +14,9 @@ class TestConstructor:
 
         page.click_sauces_section()
 
-        assert page.is_sauces_section_active()
+        assert page.wait_for_condition(
+            lambda driver: page.is_sauces_section_active()
+        )
 
     @allure.title('Переход в раздел Начинки')
     def test_click_fillings_opens_fillings_section(self, driver):
@@ -23,7 +25,9 @@ class TestConstructor:
 
         page.click_fillings_section()
 
-        assert page.is_fillings_section_active()
+        assert page.wait_for_condition(
+            lambda driver: page.is_fillings_section_active()
+        )
 
     @allure.title('Переход обратно в раздел Булки')
     def test_click_buns_opens_buns_section(self, driver):
@@ -33,4 +37,6 @@ class TestConstructor:
         page.click_sauces_section()
         page.click_buns_section()
 
-        assert page.is_buns_section_active()
+        assert page.wait_for_condition(
+            lambda driver: page.is_buns_section_active()
+        )

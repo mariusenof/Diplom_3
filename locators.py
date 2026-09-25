@@ -38,6 +38,11 @@ class MainPageLocators:
         ".//span[text()='Начинки']"
     )
 
+    PARENT_ELEMENT = (
+        By.XPATH,
+        '..'
+    )
+
     FIRST_INGREDIENT = (
         By.XPATH,
         "(//a[contains(@class, 'BurgerIngredient_ingredient')])[1]"
@@ -106,6 +111,18 @@ class OrderFeedPageLocators:
         By.XPATH,
         "//*[text()='В работе:']"
     )
+
+    MODAL_OVERLAY = (
+        By.XPATH,
+        "//div[contains(@class, 'Modal_modal_overlay')]"
+    )
+
+    @staticmethod
+    def order_number(order_number):
+        return (
+            By.XPATH,
+            f"//*[normalize-space()='{order_number}']"
+        )
 
 
 class LoginPageLocators:
