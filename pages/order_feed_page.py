@@ -1,8 +1,6 @@
 import time
 
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
 
 from pages.base_page import BasePage
 from locators import OrderFeedPageLocators
@@ -11,18 +9,8 @@ from locators import OrderFeedPageLocators
 class OrderFeedPage(BasePage):
 
     def click_constructor(self):
-        overlay_locator = (
-            'xpath',
-            "//div[contains(@class, 'Modal_modal_overlay')]"
-        )
-
-        WebDriverWait(
-            self.driver,
-            10
-        ).until(
-            EC.invisibility_of_element_located(
-                overlay_locator
-            )
+        self.wait_for_element_invisible(
+            OrderFeedPageLocators.MODAL_OVERLAY
         )
 
         self.click_element_js(
@@ -102,8 +90,9 @@ class OrderFeedPage(BasePage):
         )
 
         order_locator = (
-            'xpath',
-            f"//*[normalize-space()='{order_number}']"
+            OrderFeedPageLocators.order_number(
+                order_number
+            )
         )
 
         for _ in range(10):
