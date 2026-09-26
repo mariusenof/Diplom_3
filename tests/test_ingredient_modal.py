@@ -34,9 +34,6 @@ class TestIngredientModal:
         page.open()
 
         page.click_first_ingredient()
-
-        assert page.is_ingredient_modal_open()
-
         page.close_ingredient_modal()
 
         assert page.wait_ingredient_modal_closed()

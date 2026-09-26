@@ -169,7 +169,7 @@ class MainPage(BasePage):
         );
         """
 
-        self.driver.execute_script(
+        self.execute_script(
             script,
             ingredient,
             constructor
