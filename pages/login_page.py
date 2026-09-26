@@ -1,6 +1,3 @@
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 from pages.base_page import BasePage
 from locators import LoginPageLocators
 
@@ -22,13 +19,8 @@ class LoginPage(BasePage):
         element.send_keys(password)
 
     def click_login_button(self):
-        WebDriverWait(
-            self.driver,
-            10
-        ).until(
-            EC.invisibility_of_element_located(
-                LoginPageLocators.MODAL_OVERLAY
-            )
+        self.wait_for_element_invisible(
+            LoginPageLocators.MODAL_OVERLAY
         )
 
         self.click_element_js(
